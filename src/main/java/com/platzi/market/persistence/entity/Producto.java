@@ -1,6 +1,7 @@
 package com.platzi.market.persistence.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "productos")
@@ -9,7 +10,7 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto")
-    private long idProducto;
+    private Long idProducto;
 
     private String nombre;
 
@@ -20,18 +21,18 @@ public class Producto {
     private String codigoBarras;
 
     @Column(name = "precio_Venta")
-    private double precioVenta;
+    private BigDecimal precioVenta;
 
     @Column(name = "cantidad_Stock")
     private Integer cantidadStock;
 
     private boolean estado;
 
-    public long getIdProducto() {
+    public Long getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(long idProducto) {
+    public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
     }
 
@@ -59,11 +60,11 @@ public class Producto {
         this.codigoBarras = codigoBarras;
     }
 
-    public double getPrecioVenta() {
+    public BigDecimal getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(double precioVenta) {
+    public void setPrecioVenta(BigDecimal precioVenta) {
         this.precioVenta = precioVenta;
     }
 
