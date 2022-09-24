@@ -14,19 +14,23 @@ public class Producto {
 
     private String nombre;
 
-    @Column(name = "id_Categoria")
-    private Integer idCategoria;
+    @Column(name = "id_categoria")
+    private Long idCategoria;
 
-    @Column(name = "codigo_Barras")
+    @Column(name = "codigo_barras")
     private String codigoBarras;
 
-    @Column(name = "precio_Venta")
+    @Column(name = "precio_venta")
     private BigDecimal precioVenta;
 
-    @Column(name = "cantidad_Stock")
+    @Column(name = "cantidad_stock")
     private Integer cantidadStock;
 
     private boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
     public Long getIdProducto() {
         return idProducto;
@@ -44,11 +48,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Integer getIdCategoria() {
+    public Long getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
+    public void setIdCategoria(Long idCategoria) {
         this.idCategoria = idCategoria;
     }
 
